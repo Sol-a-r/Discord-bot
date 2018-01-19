@@ -1,0 +1,2 @@
+python BasicBot.py
+pause
