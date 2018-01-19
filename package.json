@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "killme",
   "main": "bot.js",
-  "author": "Sol.a.r",
-  "dependencies": {}
+  "author": "Solar",
+  "dependencies": {
+    "discord.io": "^2.5.3",
+    "winston": "^2.4.0"
+  }
 }
