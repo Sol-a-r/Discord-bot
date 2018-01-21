@@ -19,17 +19,13 @@ async def on_ready():
 	print('Use this link to invite {}:'.format(client.user.name))
 	print('https://discordapp.com/oauth2/authorize?client_id={}&scope=bot&permissions=8'.format(client.user.id))
 
-# This is a basic example of a call and response command. You tell it do "this" and it does it.
-@client.command()
-async def info():
+@client.event
+async def on_message(message):
+    if message.content.startswith('~help'):
 
-	await client.say(" fuck off you think I actually have the time to put some actual work into this bot. HELL NO. I'm going to bed it's 11:38, and I've got school tomarrow. ")
+        await client.send_message(message.channel, 'Commands: http://sol-a-r.xyz (placeholder)')
 
-@client.command()
-async def kpop():
-	await client.say('K-Pop is a sin...')
-	time.sleep(2)
-	await client.say('You are going to hell')
+
 
 
 client.run('NDAzNTg4OTA4Mzc5NjY4NDgx.DULcKg.jrLsEaxAI3jqmL-CtFabTVgFk_k')

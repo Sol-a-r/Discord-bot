@@ -1,2 +1,5 @@
+@echo off
+color 0a
+:top
 python BasicBot.py
-pause
+goto top
