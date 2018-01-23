@@ -19,13 +19,39 @@ async def on_ready():
 	print('Use this link to invite {}:'.format(client.user.name))
 	print('https://discordapp.com/oauth2/authorize?client_id={}&scope=bot&permissions=8'.format(client.user.id))
 
+# help
 @client.event
 async def on_message(message):
     if message.content.startswith('~help'):
-
         await client.send_message(message.channel, 'Commands: http://sol-a-r.xyz (placeholder)')
 
+# read/write command
+@client.event
+async def on_message(message):
+	if message.content.startswith('~read'):
+		file = open('file.txt', 'a')
+		quote = 'K-Pop is a sin'+'\n'
+		file.write(quote)
+		file.close()
+		file = open('file.txt', 'r')
+		text = file.read()
+
+		def check(msg):
+			return msg.content.startswith('~quote')
+
+		message = await client.wait_for_message(author=message.author, check=check)
+		quote = message.content[len('~quote'):].strip()
+		await client.send_message(message.channel, '{} is cool indeed'.format(name))
+
+
+ #fuck you
+@client.event
+async def on_message(message):
+	if message.content.startswith('~fuckyou'):
+		await client.send_message(message.channel, 'Fuck You.', tts=True)
 
 
 
-client.run('NDAzNTg4OTA4Mzc5NjY4NDgx.DULcKg.jrLsEaxAI3jqmL-CtFabTVgFk_k')
+
+
+client.run('NDA1NTA3Nzc2NDQyNDAwNzY4.DUlaVw.-BhqnEVB8MZJZB1rgYBpznyoKQ0')
